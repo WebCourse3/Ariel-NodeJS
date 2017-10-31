@@ -15,11 +15,7 @@ io.on('connection', socket => {
         console.log('user disconnected');
     });
     socket.on('chat message', msg => {
-        if (msg.includes('/setColor')) {
-            socket.broadcast.emit('set color', msg);
-        } else {
-            socket.broadcast.emit('chat message', msg);
-        }
+        socket.broadcast.emit('chat message', msg);
     });
 });
 
